@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Citizen Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="dashboard-header">
+        <h1 class="center-text">🏛️ Citizen Dashboard</h1>
+        <nav>
+            <a href="/pages/login.html" onclick="localStorage.clear()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+
+        <!-- SUBMIT COMPLAINT -->
+        <section class="complaint-form-section">
+            <div class="glass card modern-form">
+                <h2>📢 Submit a New Complaint</h2>
+                <p class="form-info">
+                    Please provide accurate details so authorities can resolve your issue faster.
+                </p>
+
+                <form id="complaintForm" enctype="multipart/form-data"
+                    onsubmit="event.preventDefault(); submitComplaint();">
+
+                    <div class="form-group">
+                        <label>Complaint Title</label>
+                        <input type="text" id="title" required placeholder="Eg: Huge pothole near main road">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="description" required placeholder="Describe the problem in detail"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <!-- ✅ DEPARTMENT ID -->
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select id="department_id" required>
+                                <option value="">Select Department</option>
+                                <option value="1">Road Damage</option>
+                                <option value="2">Water Supply</option>
+                                <option value="3">Electricity</option>
+                                <option value="4">Garbage</option>
+                                <option value="5">Public Safety</option>
+                                <option value="6">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <select id="priority" required>
+                                <option value="">Select Priority</option>
+                                <option value="LOW">Low</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="HIGH">High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" id="address" required placeholder="Street, Area, City">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Exact Location (optional)</label>
+                        <input type="text" id="location" placeholder="Latitude, Longitude">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Image (optional)</label>
+                        <input type="file" id="image" accept="image/*">
+                    </div>
+
+                    <button type="submit">🚀 Submit Complaint</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- COMPLAINT LIST -->
+        <section class="complaints-list">
+            <h2>📄 Your Complaints</h2>
+            <p class="section-info">
+                Track all complaints submitted by you and their current status.
+            </p>
+
+            <button type="button" onclick="loadMyComplaints()" class="load-complaints-btn">
+                Load My Complaints
+            </button>
+
+            <div id="complaintsContainer"></div>
+        </section>
+
+    </main>
+
+    <script src="/js/citizen.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | Smart Governance</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <header class="dashboard-header">
+        <h1>🛠️ Admin Dashboard</h1>
+        <nav>
+            <a href="/pages/login.html" onclick="localStorage.clear()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+
+        <!-- STATS -->
+        <section class="admin-stats glass">
+            <h2>📊 System Overview</h2>
+            <div id="stats" class="stats-grid">
+                <!-- Filled via admin.js -->
+            </div>
+        </section>
+
+        <!-- USER MANAGEMENT -->
+        <section class="admin-users glass">
+            <h2>👥 User Management</h2>
+            <p class="section-info">
+                View users, assign roles, and manage access.
+            </p>
+
+            <div id="users" class="grid"></div>
+        </section>
+
+    </main>
+
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>
